@@ -25,9 +25,3 @@ private_subnets = {
   "10.0.14.0/24" = "Prod-Platform-Private-1b",
   "10.0.15.0/24" = "Prod-Platform-Private-1c"
 }
-
-inverted_private_subnets = zipmap(values(var.private_subnets), keys(var.private_subnets))
-
-inverted_public_subnets = zipmap(values(var.public_subnets), keys(var.public_subnets))
-
-private_subnet_names_to_cidr = { for cidr, name in var.private_subnets : name => cidr }
